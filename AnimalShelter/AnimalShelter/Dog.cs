@@ -26,7 +26,7 @@ namespace AnimalShelter
         }
 
         
-
+        
 
         /// <summary>
         /// Creates a dog.
@@ -40,14 +40,10 @@ namespace AnimalShelter
                    string name, SimpleDate lastWalkDate) : base(chipRegistrationNumber, dateOfBirth, name)
         {
             // TODO: Modify the constructor. Make sure it initializes all properties of the class.
-            if (lastWalkDate != null)
-            {
+            
                 this.LastWalkDate = lastWalkDate;
-            }
-            else
-            {
-                throw new ArgumentNullException();
-            }
+            
+            
         }
 
         /// <summary>
