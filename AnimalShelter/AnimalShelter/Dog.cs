@@ -10,22 +10,7 @@ namespace AnimalShelter
         /// <summary>
         /// The date of the last walk of the dog. Contains null if unknown.
         /// </summary>
-        
-        private SimpleDate lastWalkDate;
-
-        public SimpleDate LastWalkDate
-        {
-            get { return lastWalkDate; }
-            set
-            {
-                if (LastWalkDate != null)
-                {
-                    lastWalkDate = value;
-                }
-            }
-        }
-
-        
+        public SimpleDate LastWalkDate { get; set; }
 
 
         /// <summary>
@@ -48,6 +33,7 @@ namespace AnimalShelter
             {
                 throw new ArgumentNullException();
             }
+                
         }
 
         /// <summary>
