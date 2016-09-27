@@ -10,7 +10,23 @@ namespace AnimalShelter
         /// <summary>
         /// The date of the last walk of the dog. Contains null if unknown.
         /// </summary>
-        public SimpleDate LastWalkDate { get; private set; }
+        
+        private SimpleDate lastWalkDate;
+
+        public SimpleDate LastWalkDate
+        {
+            get { return lastWalkDate; }
+            set
+            {
+                if (LastWalkDate != null)
+                {
+                    lastWalkDate = value;
+                }
+            }
+        }
+
+        
+
 
         /// <summary>
         /// Creates a dog.
