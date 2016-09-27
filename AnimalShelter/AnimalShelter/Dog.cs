@@ -27,7 +27,7 @@ namespace AnimalShelter
             // TODO: Modify the constructor. Make sure it initializes all properties of the class.
             if (lastWalkDate != null)
             {
-                this.lastWalkDate = lastWalkDate;
+                this.LastWalkDate = lastWalkDate;
             }
             else
             {
