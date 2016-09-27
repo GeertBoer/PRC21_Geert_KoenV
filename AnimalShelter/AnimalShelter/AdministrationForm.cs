@@ -11,16 +11,18 @@ namespace AnimalShelter
 {
     public partial class AdministrationForm : Form
     {
+        Administration admin;
         /// <summary>
         /// The (only) animal in this administration (for now....)
         /// </summary>
-        private List<Animal> animals = new List<Animal>();
+        ///
         /// <summary>
         /// Creates the form for doing adminstrative tasks
         /// </summary>
         public AdministrationForm()
         {
             InitializeComponent();
+            admin = new Administration();
             animalTypeComboBox.SelectedIndex = 0;
         }
 
@@ -34,6 +36,8 @@ namespace AnimalShelter
         private void createAnimalButton_Click(object sender, EventArgs e)
         {
             // TODO: See method description
+            bool success = true;
+            
             int chipNumber = chipNumberCounter(nudChipNumber.Value);
             if (animalTypeComboBox.Text == "Cat")
             {
@@ -43,13 +47,17 @@ namespace AnimalShelter
                 try
                 {
                     Cat cat = new Cat(chipNumber, simpleDate, tbName.Text, tbBadHabits.Text);
-                    animals.Add(cat);
+                    success = admin.Add(cat);
                 }
                 catch (ArgumentNullException)
                 {
                     MessageBox.Show("Vul alle waardes in voor cat");
                 }
 
+                if (!success)
+                {
+                    MessageBox.Show("Toevoegen niet gelukt");
+                }
             }
             else if (animalTypeComboBox.Text == "Dog")
             {
@@ -59,8 +67,20 @@ namespace AnimalShelter
                 SimpleDate walkDate = new SimpleDate(Convert.ToInt32(nudWalkDay.Value),
                                                        Convert.ToInt32(nudWalkMonth.Value),
                                                        Convert.ToInt32(nudWalkYear.Value));
-                Dog dog = new Dog(chipNumber, simpleDate, tbName.Text, walkDate);
-                animals.Add(dog);
+                try
+                {
+                    Dog dog = new Dog(chipNumber, simpleDate, tbName.Text, walkDate);
+                    success = admin.Add(dog);
+                }
+                catch (ArgumentNullException)
+                {
+                    MessageBox.Show("Vul alle waardes in voor dog");
+                }
+
+                if (!success)
+                {
+                    MessageBox.Show("Toevoegen niet gelukt");
+                }
             }
             else
             {
@@ -75,16 +95,12 @@ namespace AnimalShelter
         /// <param name="e"></param>
         private void showInfoButton_Click(object sender, EventArgs e)
         {
-            foreach (Animal animal in animals)
-            {
-                MessageBox.Show(animal.ToString());
-            }
-
+            
         }
 
         private void updateForm()
         {
-            #region formhandling
+            #region formhandling dog
             if (animalTypeComboBox.Text  == "Dog")
             {
                 lblBadHabits.Visible = false;
@@ -97,7 +113,7 @@ namespace AnimalShelter
 
             #endregion
 
-            #region formhandling
+            #region formhandling cat
             if (animalTypeComboBox.Text == "Cat")
             {
                 lblBadHabits.Visible = true;

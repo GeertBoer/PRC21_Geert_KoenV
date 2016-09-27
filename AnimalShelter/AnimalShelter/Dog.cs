@@ -10,7 +10,7 @@ namespace AnimalShelter
         /// <summary>
         /// The date of the last walk of the dog. Contains null if unknown.
         /// </summary>
-        public SimpleDate LastWalkDate { get; set; }
+        public SimpleDate LastWalkDate { get; private set; }
 
         /// <summary>
         /// Creates a dog.
@@ -24,7 +24,14 @@ namespace AnimalShelter
                    string name, SimpleDate lastWalkDate) : base(chipRegistrationNumber, dateOfBirth, name)
         {
             // TODO: Modify the constructor. Make sure it initializes all properties of the class.
-            this.LastWalkDate = lastWalkDate;
+            if (lastWalkDate != null)
+            {
+                this.LastWalkDate = lastWalkDate;
+            }
+            else
+            {
+                throw new ArgumentNullException();
+            }
         }
 
         /// <summary>
@@ -39,6 +46,19 @@ namespace AnimalShelter
         ///          Where: IsReserved will be "reserved" if reserved or "not reserved" otherwise.
         ///                 LastWalkDate will be "unknown" if unknown or the date of the last doggywalk otherwise.
         /// </returns>
+        /// 
+
+        public bool SetLastWalkDate(SimpleDate sd)
+        {
+            if (sd != null)
+            {
+                LastWalkDate = sd;
+                return true;
+            }
+
+            return false;
+        }
+
         public override string ToString()
         {
             // TODO: Put your own code here to make the method return the string specified in the
