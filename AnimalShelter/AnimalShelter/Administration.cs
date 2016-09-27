@@ -8,7 +8,6 @@ namespace AnimalShelter
     class Administration
     {
         private List<Animal> animals; 
-        private int counter;
 
         public Administration()
         {
@@ -16,18 +15,13 @@ namespace AnimalShelter
         }
 
         public bool Add(Animal animal)
-        {          
-            animals.Add(animal);
-            counter++;
-            if(animals.Count == counter)
+        {         
+            if(animal != null)
             {
+                animals.Add(animal);
                 return true;
             }
-            else
-            {
-                return false;
-            }
-            
+            return false;  
         }
 
         public bool RemoveAnimal(int chipRegistrationNumber)

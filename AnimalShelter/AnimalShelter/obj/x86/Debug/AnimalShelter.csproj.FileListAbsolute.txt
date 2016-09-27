@@ -24,3 +24,5 @@ C:\Users\KoenV\Documents\School\PRC21_Geert_Koen\AnimalShelter\AnimalShelter\obj
 C:\Users\KoenV\Documents\School\PRC21_Geert_Koen\AnimalShelter\AnimalShelter\obj\x86\Debug\AnimalShelter.csproj.GenerateResource.Cache
 C:\Users\geert\Source\Repos\PRC21_Geert_KoenV\AnimalShelter\AnimalShelter\obj\x86\Debug\AnimalShelter.exe
 C:\Users\geert\Source\Repos\PRC21_Geert_KoenV\AnimalShelter\AnimalShelter\obj\x86\Debug\AnimalShelter.pdb
+C:\Users\KoenV\Source\Repos\PRC21_Geert_KoenV\AnimalShelter\AnimalShelter\obj\x86\Debug\AnimalShelter.exe
+C:\Users\KoenV\Source\Repos\PRC21_Geert_KoenV\AnimalShelter\AnimalShelter\obj\x86\Debug\AnimalShelter.pdb
