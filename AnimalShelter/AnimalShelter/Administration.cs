@@ -28,14 +28,10 @@ namespace AnimalShelter
         {
             foreach (Animal a in animals)
             {
-                if(a.ChipRegistrationNumber == chipRegistrationNumber)
+                if (a.ChipRegistrationNumber == chipRegistrationNumber)
                 {
                     animals.Remove(a);
                     return true;
-                }
-                else
-                {
-                    return false;
                 }
             }
             return false;
@@ -48,10 +44,6 @@ namespace AnimalShelter
                 if(a.ChipRegistrationNumber == chipRegistrationNumber)
                 {
                     return a;
-                }
-                else if(a.ChipRegistrationNumber != chipRegistrationNumber)
-                {
-                    return null;
                 }
             }
             return null;

@@ -12,13 +12,7 @@ namespace AnimalShelter
     public partial class AdministrationForm : Form
     {
         Administration admin;
-        /// <summary>
-        /// The (only) animal in this administration (for now....)
-        /// </summary>
-        ///
-        /// <summary>
-        /// Creates the form for doing adminstrative tasks
-        /// </summary>
+ 
         public AdministrationForm()
         {
             InitializeComponent();
@@ -36,7 +30,6 @@ namespace AnimalShelter
         private void createAnimalButton_Click(object sender, EventArgs e)
         {
             // TODO: See method description
-            bool success = true;
             
             int chipNumber = chipNumberCounter(nudChipNumber.Value);
             if (animalTypeComboBox.Text == "Cat")
@@ -46,17 +39,19 @@ namespace AnimalShelter
                                                        Convert.ToInt32(nudYearBirthday.Value));
                 try
                 {
-                    Cat cat = new Cat(chipNumber, simpleDate, tbName.Text, tbBadHabits.Text);
-                    success = admin.Add(cat);
+                    if (admin.checkChipNr(chipNumber))
+                    {
+                        Cat cat = new Cat(chipNumber, simpleDate, tbName.Text, tbBadHabits.Text);
+                        admin.Add(cat);
+                    }
+                    else if (!admin.checkChipNr(chipNumber))
+                    {
+                        MessageBox.Show("Toevoegen niet gelukt");
+                    }                   
                 }
                 catch (ArgumentNullException)
                 {
                     MessageBox.Show("Vul alle waardes in voor cat");
-                }
-
-                if (!success)
-                {
-                    MessageBox.Show("Toevoegen niet gelukt");
                 }
             }
             else if (animalTypeComboBox.Text == "Dog")
@@ -69,17 +64,20 @@ namespace AnimalShelter
                                                        Convert.ToInt32(nudWalkYear.Value));
                 try
                 {
-                    Dog dog = new Dog(chipNumber, simpleDate, tbName.Text, walkDate);
-                    success = admin.Add(dog);
+                    if (admin.checkChipNr(chipNumber))
+                    {
+                        Dog dog = new Dog(chipNumber, simpleDate, tbName.Text, walkDate);
+                        admin.Add(dog);
+                    }
+                    else if (!admin.checkChipNr(chipNumber))
+                    {
+                        MessageBox.Show("Toevoegen niet gelukt");
+                    }
+                    
                 }
                 catch (ArgumentNullException)
                 {
                     MessageBox.Show("Vul alle waardes in voor dog");
-                }
-
-                if (!success)
-                {
-                    MessageBox.Show("Toevoegen niet gelukt");
                 }
             }
             else
@@ -95,13 +93,24 @@ namespace AnimalShelter
         /// <param name="e"></param>
         private void showInfoButton_Click(object sender, EventArgs e)
         {
-            
+            Animal a = admin.FindAnimal(Convert.ToInt32(nudFindAnimal.Value));
+            MessageBox.Show(a.ToString());
         }
 
-        private void updateForm()
+        private int chipNumberCounter(decimal chipNumber)
+        {
+            if(chipNumber == nudChipNumber.Value)
+            {
+                chipNumber++;
+            }
+            nudChipNumber.Value = chipNumber;
+            return Convert.ToInt32(chipNumber - 1);
+        }
+
+        private void animalTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             #region formhandling dog
-            if (animalTypeComboBox.Text  == "Dog")
+            if (animalTypeComboBox.Text == "Dog")
             {
                 lblBadHabits.Visible = false;
                 lblWalkDate.Visible = true;
@@ -125,20 +134,6 @@ namespace AnimalShelter
             }
 
             #endregion
-        }
-        private int chipNumberCounter(decimal chipNumber)
-        {
-            if(chipNumber == nudChipNumber.Value)
-            {
-                chipNumber++;
-            }
-            nudChipNumber.Value = chipNumber;
-            return Convert.ToInt32(chipNumber);
-        }
-
-        private void animalTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            updateForm();
         }
     }
 }

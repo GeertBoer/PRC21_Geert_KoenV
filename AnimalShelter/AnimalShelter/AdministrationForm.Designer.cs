@@ -45,6 +45,7 @@
             this.nudWalkYear = new System.Windows.Forms.NumericUpDown();
             this.nudWalkDay = new System.Windows.Forms.NumericUpDown();
             this.nudWalkMonth = new System.Windows.Forms.NumericUpDown();
+            this.nudFindAnimal = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudDayBirthday)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMonthBirthday)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudYearBirthday)).BeginInit();
@@ -52,6 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudWalkYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWalkDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWalkMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFindAnimal)).BeginInit();
             this.SuspendLayout();
             // 
             // animalTypeComboBox
@@ -79,7 +81,7 @@
             // 
             // showInfoButton
             // 
-            this.showInfoButton.Location = new System.Drawing.Point(209, 10);
+            this.showInfoButton.Location = new System.Drawing.Point(73, 292);
             this.showInfoButton.Name = "showInfoButton";
             this.showInfoButton.Size = new System.Drawing.Size(75, 23);
             this.showInfoButton.TabIndex = 2;
@@ -297,11 +299,19 @@
             0});
             this.nudWalkMonth.Visible = false;
             // 
+            // nudFindAnimal
+            // 
+            this.nudFindAnimal.Location = new System.Drawing.Point(12, 295);
+            this.nudFindAnimal.Name = "nudFindAnimal";
+            this.nudFindAnimal.Size = new System.Drawing.Size(55, 20);
+            this.nudFindAnimal.TabIndex = 17;
+            // 
             // AdministrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 327);
+            this.Controls.Add(this.nudFindAnimal);
             this.Controls.Add(this.nudWalkMonth);
             this.Controls.Add(this.nudWalkDay);
             this.Controls.Add(this.nudWalkYear);
@@ -328,6 +338,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudWalkYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWalkDay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWalkMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFindAnimal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,6 +363,7 @@
         private System.Windows.Forms.NumericUpDown nudWalkYear;
         private System.Windows.Forms.NumericUpDown nudWalkDay;
         private System.Windows.Forms.NumericUpDown nudWalkMonth;
+        private System.Windows.Forms.NumericUpDown nudFindAnimal;
     }
 }
 
