@@ -11,7 +11,21 @@ namespace AnimalShelter
         /// Description of the bad habits that the cat has (e.g. "Scratches the couch").
         /// or null if the cat has no bad habits.
         /// </summary>
-        public string BadHabits { get; set; }
+        //public string BadHabits { get; set; }
+        private string badHabits;
+        public string BadHabits
+        {
+            get { return badHabits; }
+            set
+            {
+                if (value != null)
+                {
+                    badHabits = value;
+                }
+                else badHabits = "";
+            }
+        }
+
 
         /// <summary>
         /// Creates a cat.

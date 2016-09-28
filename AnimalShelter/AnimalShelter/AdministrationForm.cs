@@ -27,10 +27,9 @@ namespace AnimalShelter
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        
         private void createAnimalButton_Click(object sender, EventArgs e)
         {
-            // TODO: See method description
-            
             int chipNumber = chipNumberCounter(nudChipNumber.Value);
             if (animalTypeComboBox.Text == "Cat")
             {
@@ -123,7 +122,7 @@ namespace AnimalShelter
                 tbBadHabits.Visible = false;
             }
 
-            #endregion
+            #endregion 
 
             #region formhandling cat
             if (animalTypeComboBox.Text == "Cat")
