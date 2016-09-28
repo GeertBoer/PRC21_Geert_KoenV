@@ -99,12 +99,15 @@ namespace AnimalShelter
 
         private int chipNumberCounter(decimal chipNumber)
         {
+            int chipNumberOld = (int)chipNumber;
+
             if(chipNumber == nudChipNumber.Value)
             {
                 chipNumber++;
             }
             nudChipNumber.Value = chipNumber;
-            return Convert.ToInt32(chipNumber - 1);
+
+            return chipNumberOld;
         }
 
         private void animalTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
